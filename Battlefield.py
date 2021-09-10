@@ -7,7 +7,9 @@ class Battlefield:
         self.herd = Herd()
 
     def run_game(self):
-        pass
+        self.display_welcome()
+        self.battle()
+        self.display_winners()
     
     def display_welcome(self):
         print("Welcome to the battle!")
