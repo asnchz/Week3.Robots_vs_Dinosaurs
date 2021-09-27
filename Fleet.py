@@ -3,6 +3,7 @@ from Robot import Robot
 class Fleet:
     def __init__(self):
         self.robots = []
+        self.robot_fleet()
 
     def robot_fleet(self):
         robot1 = Robot("Wall-E")

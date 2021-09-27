@@ -1,8 +1,10 @@
 from Weapon import Weapon
 
 class Robot:
-    def __init__(self, robot_name, health, robot_weapon, attack_power):
-        self.robot_name = robot_name
-        self.health = health
-        self.robot_weapon = Weapon()
-        self.attack_power = attack_power
+    def __init__(self, name):
+        self.name = name
+        self.health = 100
+        self.weapon = Weapon('Machine Gun', 50)
+
+    def attack(self, dino):
+        dino.health = dino.health - self.attack_power
