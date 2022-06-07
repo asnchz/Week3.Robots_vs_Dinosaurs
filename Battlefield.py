@@ -22,13 +22,32 @@ class Battlefield:
         pass
     
     def robo_turn(self, robot):
-        pass
+        self.show_robot_opponent_options()
+        robot_pick = int(input("Which robot will attack?"))
+        self.show_dino_opponent_options()
+        dino_pick = int(input("Which dinosaur will defend?"))
+        self.fleet.robots[robot_pick].attack(
+            self.herd.dinosaurs[dino_pick])
+        if self.herd.dinosaurs[dino_pick].health <= 0:
+            print("${self.herd.dinosaurs[dino_pick].name} has died!")
+            self.herd.dinosaurs.remove(self.herd.dinosaurs[dino_pick])
 
     def show_dino_opponent_options(self):
-        pass
+        print("Pick your dinosaur!")
+        index = 0
+        for robot in self.herd.dinosaurs:
+            print("Press ${index} for ${dinosaur.name} with ${dinosaur.health} health")
+            index += 1
 
-    def show_robo_opponent_options(self):
-        pass
+    def show_robot_opponent_options(self):
+        print("Pick your robot!")
+        index = 0
+        for robot in self.fleet.robots:
+            print("Press ${index} for ${robot.name} with ${robot.health} health")
+            index += 1
 
     def display_winners(self):
-        pass
+        if len(self.fleet.robots) > len(self.herd.dinosaurs):
+           print ('Robots Win!')
+        else:
+            print('Dinosaurs Win!')
